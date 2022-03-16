@@ -1,0 +1,26 @@
+#include <Arduino.h>
+#line 2 "c:\\Users\\Jeong\\Desktop\\Dev\\arduino\\sketch.ino"
+void setup();
+#line 8 "c:\\Users\\Jeong\\Desktop\\Dev\\arduino\\sketch.ino"
+void loop();
+#line 0 "c:\\Users\\Jeong\\Desktop\\Dev\\arduino\\sketch.ino"
+#line 1 "c:\\Users\\Jeong\\Desktop\\Dev\\arduino\\serial.ino"
+
+
+#line 1 "c:\\Users\\Jeong\\Desktop\\Dev\\arduino\\sketch.ino"
+// the setup function runs once when you press reset or power the board
+void setup() {
+  // initialize digital pin LED_BUILTIN as an output.
+    Serial.begin(9600);
+}
+
+// the loop function runs over and over again forever
+void loop() {
+    int i = random(0,100);
+    int j = random(0,100);
+    Serial.print("i,j= ");
+    Serial.print(i);
+    Serial.print(" ");
+    Serial.println(j);
+    
+}

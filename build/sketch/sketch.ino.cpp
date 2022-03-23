@@ -1,4 +1,11 @@
+#include <Arduino.h>
+#line 1 "c:\\Users\\Jeong\\Desktop\\Dev\\arduino\\sketch.ino"
 // the setup function runs once when you press reset or power the board
+#line 2 "c:\\Users\\Jeong\\Desktop\\Dev\\arduino\\sketch.ino"
+void setup();
+#line 8 "c:\\Users\\Jeong\\Desktop\\Dev\\arduino\\sketch.ino"
+void loop();
+#line 2 "c:\\Users\\Jeong\\Desktop\\Dev\\arduino\\sketch.ino"
 void setup() {
   // initialize digital pin LED_BUILTIN as an output.
   Serial.begin(9600);
@@ -11,14 +18,14 @@ void loop(){
   for(int i=0; i<=10; i++){
     val = analogRead(A0);
     sum += val;  
-    delay(10);
+    delay(50);
   }
   sum = sum/10;
   Serial.print("val: ");
   Serial.print(sum);
   Serial.print("   ");
   Serial.print("Voltage: ");
-  Serial.println(sum*5/1023);
+  Serial.println(200*sum*5/1023);
 }
 
 

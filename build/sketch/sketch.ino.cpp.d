@@ -1,5 +1,5 @@
-c:\Users\Jeong\Desktop\Dev\arduino\build\core\main.cpp.o: \
- C:\Users\Jeong\AppData\Local\Arduino15\packages\arduino\hardware\avr\1.8.5\cores\arduino\main.cpp \
+c:\Users\Jeong\Desktop\Dev\arduino\build\sketch\sketch.ino.cpp.o: \
+ c:\Users\Jeong\Desktop\Dev\arduino\build\sketch\sketch.ino.cpp \
  C:\Users\Jeong\AppData\Local\Arduino15\packages\arduino\hardware\avr\1.8.5\cores\arduino/Arduino.h \
  C:\Users\Jeong\AppData\Local\Arduino15\packages\arduino\hardware\avr\1.8.5\cores\arduino/binary.h \
  C:\Users\Jeong\AppData\Local\Arduino15\packages\arduino\hardware\avr\1.8.5\cores\arduino/WCharacter.h \

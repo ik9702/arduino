@@ -1,2 +1,2 @@
 c:\Users\Jeong\Desktop\Dev\arduino\build\core\wiring_pulse.S.o: \
- C:\Program\ Files\ (x86)\Arduino\hardware\arduino\avr\cores\arduino\wiring_pulse.S
+ C:\Users\Jeong\AppData\Local\Arduino15\packages\arduino\hardware\avr\1.8.5\cores\arduino\wiring_pulse.S

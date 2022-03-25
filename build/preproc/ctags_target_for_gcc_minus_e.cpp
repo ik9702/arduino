@@ -13,14 +13,14 @@ void loop(){
   for(int i=0; i<=10; i++){
     val = analogRead(A0);
     sum += val;
-    delay(50);
+    delay(10);
   }
   sum = sum/10;
   Serial.print("val: ");
   Serial.print(sum);
   Serial.print("   ");
   Serial.print("Voltage: ");
-  Serial.println(200*sum*5/1023);
+  Serial.println(sum*5/1023);
 }
 
 
@@ -115,7 +115,7 @@ void loop() {
 //     digitalWrite(10, k);
 //     delay(500);
 // }
-# 67 "c:\\Users\\Jeong\\Desktop\\Dev\\arduino\\sketch.ino"
+# 125 "c:\\Users\\Jeong\\Desktop\\Dev\\arduino\\sketch.ino"
 // // the setup function runs once when you press reset or power the board
 // void setup() {
 //   Serial.begin(9600);

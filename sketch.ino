@@ -1,5 +1,6 @@
 // the setup function runs once when you press reset or power the board
 void setup() {
+<<<<<<< Updated upstream
   // initialize digital pin LED_BUILTIN as an output.
   Serial.begin(9600);
 
@@ -56,4 +57,94 @@ void loop(){
 
 //     Serial.print(Vol);
 //     Serial.println("V");
+=======
+  Serial.begin(9600);
+  pinMode(2, INPUT_PULLUP);
+  pinMode(3, INPUT_PULLUP);
+  pinMode(9, OUTPUT);
+}
+
+
+void loop() {
+  for(int i=0; i<256; i++){
+    analogWrite(9, i);
+    delay(10);
+  }
+  for(int i=255; i>0; i--){
+    analogWrite(9, i);
+    delay(10);
+  }
+}
+
+// // the setup function runs once when you press reset or power the board
+// void setup() {
+//   Serial.begin(9600);
+//   pinMode(2, INPUT_PULLUP);
+//   pinMode(3, INPUT_PULLUP);
+//   pinMode(8, OUTPUT);
+//   pinMode(9, OUTPUT);
+//   pinMode(10, OUTPUT);
+// }
+
+// int i = 0;
+// int j = 0;
+// int k = 0;
+// void loop() {
+//     int val = random(1,31);
+//     i = 0;
+//     j = 0;
+//     k = 0;
+//     Serial.print(val);
+//     if(0<val&&val<11){
+//       i =1;
+//     }
+//     else if(11<=val&&val<21){
+//       j =1;
+//     }
+//     else{
+//       k = 1;
+//     }
+    
+//     Serial.print(i);
+//     Serial.print(j);
+//     Serial.println(k);
+
+//     digitalWrite(8, i);
+//     digitalWrite(9, j);
+//     digitalWrite(10, k);
+//     delay(500);
+// }
+
+
+
+
+
+
+
+
+// // the setup function runs once when you press reset or power the board
+// void setup() {
+//   Serial.begin(9600);
+//   pinMode(2, INPUT_PULLUP);
+//   pinMode(3, INPUT_PULLUP);
+//   pinMode(8, OUTPUT);
+// }
+
+
+// void loop() {
+//     int i = digitalRead(2);
+//     int j = digitalRead(3);
+//     int y = i*j;
+//     int x = i+j;
+//     int val = x-(2*y);
+//     Serial.println(val);
+//     if(val == 0){
+//       digitalWrite(8,1);
+//     }
+//     else{
+//       digitalWrite(8, 0);
+//     }
+    
+//     delay(200);
+>>>>>>> Stashed changes
 // }

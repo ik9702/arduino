@@ -1,157 +1,77 @@
 #include <Arduino.h>
 #line 1 "c:\\Users\\Jeong\\Desktop\\Dev\\arduino\\sketch.ino"
-// the setup function runs once when you press reset or power the board
-#line 2 "c:\\Users\\Jeong\\Desktop\\Dev\\arduino\\sketch.ino"
+#line 1 "c:\\Users\\Jeong\\Desktop\\Dev\\arduino\\sketch.ino"
 void setup();
-#line 9 "c:\\Users\\Jeong\\Desktop\\Dev\\arduino\\sketch.ino"
+#line 11 "c:\\Users\\Jeong\\Desktop\\Dev\\arduino\\sketch.ino"
 void loop();
-#line 2 "c:\\Users\\Jeong\\Desktop\\Dev\\arduino\\sketch.ino"
-void setup() {
-<<<<<<< Updated upstream
-  // initialize digital pin LED_BUILTIN as an output.
+#line 1 "c:\\Users\\Jeong\\Desktop\\Dev\\arduino\\sketch.ino"
+void setup(){
   Serial.begin(9600);
-
+  pinMode(3, OUTPUT);
 }
+int val = 0;
+int cnt = 10;
+int bright = 100;
+float target = 1400;
+int step = 5;
 
 void loop(){
-  int val;
+  Serial.print(target);
+  Serial.print("         ");
   int sum = 0;
-  for(int i=0; i<=10; i++){
+  for(int i=0;i<=cnt;i++){
     val = analogRead(A0);
-    sum += val;  
+    sum = sum+val;
     delay(10);
   }
-  sum = sum/10;
-  Serial.print("val: ");
-  Serial.print(sum);
-  Serial.print("   ");
-  Serial.print("Voltage: ");
-  Serial.println(sum*5/1023);
-}
+  val = sum/cnt;
+  
+  float vol = 5*val/1023.0;
+  float ohm = 10000*vol/(5-vol);
+  Serial.print(ohm);
+  
 
-
-// // the loop function runs over and over again forever
-// void loop() {
-//     float sum = 0;
-//     float Vsum = 0;
-//     float Cal = 450;
-//     float Val;
-//     float Vol;
-
-//     for(int i=0;i<=30;i++){
-//       Val = analogRead(A0);
-//       Vol = Cal*Val/1023;
-//       sum += Val;
-//       Vsum += Vol;
-//       delay(300);
-//     }
-//     analogWrite(10, Vsum);
-//     Serial.print(sum);
-//     Serial.print("          ");
-
-//     Serial.print(sum*5/1023);
-//     Serial.println("V");
-// }
-
-// the loop function runs over and over again forever
-// void loop() {
-//     int Val = analogRead(A0);
-//     float Cal = 204.8;
-//     float Vol = Val/Cal;
-//     analogWrite(10, Val/4);
-//     Serial.print(Val);
-//     Serial.print("          ");
-
-//     Serial.print(Vol);
-//     Serial.println("V");
-=======
-  Serial.begin(9600);
-  pinMode(2, INPUT_PULLUP);
-  pinMode(3, INPUT_PULLUP);
-  pinMode(9, OUTPUT);
-}
-
-
-void loop() {
-  for(int i=0; i<256; i++){
-    analogWrite(9, i);
-    delay(10);
+  if(bright>=0&&bright<255&&ohm<target){
+    bright = bright-step;
   }
-  for(int i=255; i>0; i--){
-    analogWrite(9, i);
-    delay(10);
+  else if(bright<255&&ohm>target){
+    bright = bright+step;
   }
+  else if(bright<0){
+    bright = bright+step;
+  }
+  else{
+    bright = bright-step;
+  }
+  Serial.print("      ");
+  Serial.println(bright);
+  analogWrite(3, bright);
 }
 
-// // the setup function runs once when you press reset or power the board
-// void setup() {
+// void setup(){
 //   Serial.begin(9600);
-//   pinMode(2, INPUT_PULLUP);
-//   pinMode(3, INPUT_PULLUP);
-//   pinMode(8, OUTPUT);
-//   pinMode(9, OUTPUT);
-//   pinMode(10, OUTPUT);
+//   pinMode(3, OUTPUT);
 // }
-
-// int i = 0;
-// int j = 0;
-// int k = 0;
-// void loop() {
-//     int val = random(1,31);
-//     i = 0;
-//     j = 0;
-//     k = 0;
-//     Serial.print(val);
-//     if(0<val&&val<11){
-//       i =1;
-//     }
-//     else if(11<=val&&val<21){
-//       j =1;
-//     }
-//     else{
-//       k = 1;
-//     }
-    
-//     Serial.print(i);
-//     Serial.print(j);
-//     Serial.println(k);
-
-//     digitalWrite(8, i);
-//     digitalWrite(9, j);
-//     digitalWrite(10, k);
-//     delay(500);
-// }
+// int val = 0;
+// int cnt = 50;
+// void loop(){
+//   int sum = 0;
+//   for(int i=0;i<=cnt;i++){
+//     val = analogRead(A0);
+//     sum = sum+val;
+//     delay(10);
+//   }
+//   val = sum/cnt;
+//   float vol = 5*val/1023.0;
+//   float ohm = 10000*vol/(5-vol);
+//   float cal = 1.6;
+//   float hmm = pow(ohm, cal);
+//   float lux = 1.5/hmm;
+//   Serial.print(val);//0-1023
+//   Serial.print("    ");
+//   Serial.print(ohm);
+//   Serial.print("    ");
+//   Serial.println(lux);
 
 
-
-
-
-
-
-
-// // the setup function runs once when you press reset or power the board
-// void setup() {
-//   Serial.begin(9600);
-//   pinMode(2, INPUT_PULLUP);
-//   pinMode(3, INPUT_PULLUP);
-//   pinMode(8, OUTPUT);
-// }
-
-
-// void loop() {
-//     int i = digitalRead(2);
-//     int j = digitalRead(3);
-//     int y = i*j;
-//     int x = i+j;
-//     int val = x-(2*y);
-//     Serial.println(val);
-//     if(val == 0){
-//       digitalWrite(8,1);
-//     }
-//     else{
-//       digitalWrite(8, 0);
-//     }
-    
-//     delay(200);
->>>>>>> Stashed changes
 // }

@@ -1,24 +1,50 @@
 #include <Arduino.h>
 #line 1 "c:\\Users\\Jeong\\Desktop\\Dev\\arduino\\sketch.ino"
-
-const int i = 0;
-#line 3 "c:\\Users\\Jeong\\Desktop\\Dev\\arduino\\sketch.ino"
+#line 1 "c:\\Users\\Jeong\\Desktop\\Dev\\arduino\\sketch.ino"
 void setup();
-#line 8 "c:\\Users\\Jeong\\Desktop\\Dev\\arduino\\sketch.ino"
+#line 7 "c:\\Users\\Jeong\\Desktop\\Dev\\arduino\\sketch.ino"
 void loop();
-#line 3 "c:\\Users\\Jeong\\Desktop\\Dev\\arduino\\sketch.ino"
+#line 1 "c:\\Users\\Jeong\\Desktop\\Dev\\arduino\\sketch.ino"
 void setup(){
   Serial.begin(9600);
-
+  pinMode(3, INPUT);
+  pinMode(4, OUTPUT);
 }
-
+int flag = 1;
 void loop(){
-  for(i=0; i<10; i++){
-    Serial.println(i);
+  int state = digitalRead(3);
+  Serial.println(state);
+  switch(state){
+    case 0:
+      digitalWrite(4, 0);
+      delay(200);
+      flag = 1;
+      break;
+    case 1:
+      if(flag==1){
+        digitalWrite(4, 1);
+        delay(500);
+        digitalWrite(4, 0);
+        delay(500);
+        digitalWrite(4, 1);
+        delay(500);
+        digitalWrite(4, 0);
+        delay(500);
+        digitalWrite(4, 1);
+        delay(500);
+        digitalWrite(4, 0);
+        delay(500);
+        flag = 0;
+      }
+        
+      digitalWrite(4, 1);
+      
+      break;
+    
   }
-  Serial.end();
 }
 
+  
 
 
 
